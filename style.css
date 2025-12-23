@@ -143,7 +143,6 @@ body {
   margin-top: 30px;
 }
 
-/* fade edges to hide any tiny snap */
 .social-carousel::before,
 .social-carousel::after {
   content: "";
@@ -165,7 +164,6 @@ body {
   background: linear-gradient(to left, white, transparent);
 }
 
-/* track */
 .carousel-track {
   display: flex;
   gap: 48px;
