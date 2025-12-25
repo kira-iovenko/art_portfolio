@@ -60,10 +60,19 @@ body {
     min-height: 60vh;
     width: 100%;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+#particle-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .subpage .panel {
-    min-height: auto;
+    min-height: 260px;
     padding: 40px 0;
 }
 
@@ -72,8 +81,9 @@ body {
     width: 0;
     height: 2px;
     background-color: #FF5F7E;
-    margin: 20px auto 40px auto;
+    margin: 16px auto 28px;
     animation: drawDivider 0.8s ease-out forwards;
+    opacity: 0.8;
 }
 
 @keyframes drawDivider {
@@ -89,6 +99,8 @@ body {
 .left,
 .right {
     padding: 40px;
+    position: relative;
+    z-index: 2;
 }
 
 .left {
@@ -102,6 +114,8 @@ body {
     text-align: center;
     max-width: 400px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;   
 }
 
 .logo-wrapper {
@@ -125,7 +139,7 @@ body {
 .subpage .logo {
     max-height: 130px;
     width: auto;
-} 
+}
 
 .logo:hover {
     transform: scale(1.05);
@@ -167,7 +181,6 @@ body {
     display: block;
     transition: transform 0.4s ease, box-shadow 0.3s ease;
     border-radius: 12%;
-    /* fading effect */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease, transform 0.8s ease;
