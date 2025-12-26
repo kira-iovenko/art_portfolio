@@ -120,3 +120,30 @@ function animateParticles() {
 }
 
 animateParticles();
+
+const modal = document.getElementById("art-modal");
+const modalImg = document.getElementById("modal-image");
+const modalTitle = document.getElementById("modal-title");
+const modalMeta = document.getElementById("modal-meta");
+const modalNotes = document.getElementById("modal-notes");
+const closeBtn = document.querySelector(".modal-close");
+
+document.querySelectorAll(".art-image.clickable").forEach(img => {
+    img.addEventListener("click", () => {
+        modal.classList.add("show");
+        modalImg.src = img.src;
+        modalTitle.textContent = img.dataset.title || "";
+        modalMeta.textContent = img.dataset.year || "";
+        modalNotes.textContent = img.dataset.notes || "";
+    });
+});
+
+closeBtn.addEventListener("click", () => {
+    modal.classList.remove("show");
+});
+
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.classList.remove("show");
+    }
+});
