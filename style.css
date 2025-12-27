@@ -64,7 +64,7 @@ body {
     overflow: hidden;
 }
 
-#particle-canvas {
+#particles{
     position: absolute;
     inset: 0;
     z-index: 0;
@@ -110,7 +110,7 @@ body {
     justify-content: center;
 }
 
-.left-content {
+.left-stuff {
     text-align: center;
     max-width: 400px;
     margin: 0 auto;
@@ -152,7 +152,7 @@ body {
     }
 }
 
-.left-content h1 {
+.left-stuff h1 {
     color: #FF5F7E;
     font-size: 55px;
     font-family: "Courier New", monospace;
@@ -162,7 +162,7 @@ body {
     margin-bottom: 12px;
 }
 
-.left-content p {
+.left-stuff p {
     color: #fff;
     font-family: "Courier New", monospace;
 }
@@ -280,33 +280,76 @@ body {
     position: fixed;
     inset: 0;
     background: rgba(20, 47, 67, 0.85);
-    display: none;
+    display: flex;
     align-items:  center;
     justify-content: center;
     z-index: 999;
     padding: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: background 0.4 ease, opacity 0.4s ease; 
+    overscroll-behavior: contain;
 }
 
 .modal.show {
-    display: flex;
+    background: rgba(20, 47, 67, 0.95);
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .modal-content {
     background: #142F43;
-    padding: 24px;
-    max-width: 800px;
+    padding: 48px 32px 32px;
     width: 100%;
-    text-align: center;
+    max-width: 900px;
+    max-height: 90vh;
+    display: flex;
+    gap: 32px;
+    align-items: center;
     position: relative;
-    animation: popIn 0.3 ease;
+    opacity: 0;
+    transform: scale(0.96);
+    transition: opacity 0.4s ease, transform 0.4s ease;}
+
+.modal.show .modal-content {
+    opacity: 1;
+    transform: scale(1);
+    transform: translateX(0);
 }
 
 .modal-content img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 16px;
+    max-width: 420px;
+    max-height: 70vh;
+    object-fit: contain;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
+.modal.show .modal-content img{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (min-aspect-ratio: 16/7) {
+    .modal-content img {
+        max-height: 45vh;
+        opacity: .95;
+    }
+}
+
+.modal-caption {
+    max-width: 360px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition-delay: 0.12s;
+}
+
+.modal.show .modal-caption {
+    opacity: 1;
+    transform: translateX(0);
+}
 .modal-caption h2 {
     color: #FF5F7E;
     margin-bottom: 0;
@@ -320,13 +363,18 @@ body {
 
 .modal-close {
     position: absolute;
-    top: 10px;
+    top: 16px;
     right: 16px;
     font-size: 28px;
     color: #fff;
     cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
+.modal.show .modal-close {
+    opacity: 1;
+}   
 @keyframes popIn {
     from {
         transform: scale(0.95);

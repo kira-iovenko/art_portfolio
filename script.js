@@ -43,11 +43,11 @@ const observer = new IntersectionObserver(
 
 images.forEach(img => observer.observe(img));
 
-const canvas = document.getElementById("particle-canvas");
+const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 const panel = canvas.parentElement;
 
-let particles = [];
+let particle = [];
 let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
 
 function resizeCanvas() {
@@ -75,7 +75,7 @@ const MOUSE_REACH = 150;
 const MOUSE_FACTOR = 0.08;
 
 for (let i = 0; i < PARTICLE_COUNT; i++) {
-    particles.push({
+    particle.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         r: Math.random() * MAX_RADIUS + 1,
@@ -84,10 +84,10 @@ for (let i = 0; i < PARTICLE_COUNT; i++) {
     });
 }
 
-function animateParticles() {
+function animatepartickle() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    particles.forEach(p => {
+    particle.forEach(p => {
         p.x += p.vx;
         p.y += p.vy;
 
@@ -116,10 +116,10 @@ function animateParticles() {
         ctx.fill();
     });
 
-    requestAnimationFrame(animateParticles);
+    requestAnimationFrame(animatepartickle);
 }
 
-animateParticles();
+animatepartickle();
 
 const modal = document.getElementById("art-modal");
 const modalImg = document.getElementById("modal-image");
