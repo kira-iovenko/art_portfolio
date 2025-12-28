@@ -131,19 +131,25 @@ const closeBtn = document.querySelector(".modal-close");
 document.querySelectorAll(".art-image.clickable").forEach(img => {
     img.addEventListener("click", () => {
         modal.classList.add("show");
-        modalImg.src = img.src;
+        document.body.style.overflow = "hidden";
+        const pngSrc = img.dataset.png || img.src;
+        modalImg.src = "";
+        modalImg.src = pngSrc;
         modalTitle.textContent = img.dataset.title || "";
         modalMeta.textContent = img.dataset.year || "";
         modalNotes.textContent = img.dataset.notes || "";
     });
 });
 
-closeBtn.addEventListener("click", () => {
+function closeModal() {
     modal.classList.remove("show");
-});
+    document.body.style.overflow = "";
+}
+
+closeBtn.addEventListener("click", closeModal);
 
 modal.addEventListener("click", (e) => {
     if (e.target === modal) {
-        modal.classList.remove("show");
+        closeModal();
     }
 });
