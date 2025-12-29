@@ -33,6 +33,7 @@ body {
 .navbar a {
     text-decoration: none;
     color: #fff;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-weight: bold;
     font-size: 16px;
     display: inline-block;
@@ -64,7 +65,7 @@ body {
     overflow: hidden;
 }
 
-#particles{
+#particles {
     position: absolute;
     inset: 0;
     z-index: 0;
@@ -115,7 +116,7 @@ body {
     max-width: 400px;
     margin: 0 auto;
     position: relative;
-    z-index: 2;   
+    z-index: 2;
 }
 
 .logo-wrapper {
@@ -281,13 +282,13 @@ body {
     inset: 0;
     background: rgba(20, 47, 67, 0.85);
     display: flex;
-    align-items:  center;
+    align-items: center;
     justify-content: center;
     z-index: 999;
     padding: 40px;
     opacity: 0;
     pointer-events: none;
-    transition: background 0.4 ease, opacity 0.4s ease; 
+    transition: background 0.4 ease, opacity 0.4s ease;
     overscroll-behavior: contain;
 }
 
@@ -309,7 +310,8 @@ body {
     position: relative;
     opacity: 0;
     transform: scale(0.96);
-    transition: opacity 0.4s ease, transform 0.4s ease;}
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
 
 .modal.show .modal-content {
     opacity: 1;
@@ -326,7 +328,7 @@ body {
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.modal.show .modal-content img{
+.modal.show .modal-content img {
     opacity: 1;
     transform: translateX(0);
 }
@@ -350,9 +352,11 @@ body {
     opacity: 1;
     transform: translateX(0);
 }
+
 .modal-caption h2 {
     color: #FF5F7E;
     margin-bottom: 0;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .modal-caption p {
@@ -374,12 +378,37 @@ body {
 
 .modal.show .modal-close {
     opacity: 1;
-}   
+}
+
+.my-footer {
+    margin-top: 80px;
+    padding: 40px 20px;
+    text-align: center;
+    background: #142F43;
+    color: #ccc;
+    font-family: "Courier New", monospace;
+}
+
+.my-footer p {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.footer-note {
+    font-size: 12px;
+    opacity: 0.75;
+}
+
+.my-footer:hover {
+    color: #fff;
+}
+
 @keyframes popIn {
     from {
         transform: scale(0.95);
         opacity: 0;
     }
+
     to {
         transform: scale(1);
         opacity: 1;

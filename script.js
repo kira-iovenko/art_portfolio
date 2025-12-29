@@ -153,3 +153,9 @@ modal.addEventListener("click", (e) => {
         closeModal();
     }
 });
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("show")) {
+        closeModal();
+    }
+});
