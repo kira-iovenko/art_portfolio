@@ -7,7 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="subpage art2">
+<body class="subpage">
+    <div class="modal" id="art-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img id="modal-image" src="" alt="">
+            <div class="modal-caption">
+                <h2 id="modal-title"></h2>
+                <p id="modal-meta"></p>
+                <p id="modal-notes"></p>
+            </div>
+        </div>
+    </div>
+
     <nav class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -17,6 +29,7 @@
 
         </ul>
     </nav>
+
     <div class="overlay">
         <div class="panel">
             <canvas id="particles"></canvas>
@@ -32,6 +45,12 @@
         </div>
     </div>
     <div class="divider"></div>
+    <div class="gallery-full">
+        <div class="scroll-fade"></div>
+        <img src="images/webp_2D/nightingale.webp" data-png="images/art-2D/nightingale.jpg" alt="nightingale drawing"
+            class="art-image clickable" data-title="Nightingale" data-year="2023"
+            data-notes="Sharpie and watercolor on paper">
+    </div>
     <script src="script.js"></script>
 </body>
 
