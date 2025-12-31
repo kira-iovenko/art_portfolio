@@ -141,6 +141,17 @@ document.querySelectorAll(".art-image.clickable").forEach(img => {
     });
 });
 
+const expandBtn = document.querySelector(".expand-btn");
+
+expandBtn.addEventListener("click", (e) => {
+    e.stopImmediatePropagation();
+    modal.classList.toggle("expanded");
+});
+
+modalImg.addEventListener("click", () => {
+    modal.classList.toggle("expanded");    
+});
+
 function closeModal() {
     modal.classList.remove("show");
     document.body.style.overflow = "";

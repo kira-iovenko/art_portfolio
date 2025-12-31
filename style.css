@@ -130,11 +130,9 @@ body {
     max-width: 300px;
     width: 100%;
     height: auto;
-    margin-bottom: 20px;
     transition: transform 0.3s ease;
     display: block;
-    margin: 0 auto;
-    height: auto;
+    margin: 0 auto 20px;
 }
 
 .subpage .logo {
@@ -180,7 +178,6 @@ body {
     max-width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.4s ease, box-shadow 0.3s ease;
     border-radius: 12%;
     opacity: 0;
     transform: translateY(20px);
@@ -298,6 +295,57 @@ body {
     pointer-events: auto;
 }
 
+.modal-img-wrapper {
+    position: relative;
+    max-width: 60vw;
+    max-height: 80vh;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.expand-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.modal-img-wrapper:hover .expand-btn {
+    opacity: 1;
+}
+
+.modal-img-wrapper img {
+    width: 100%;
+    height: auto;
+    cursor: zoom-in;
+}
+
+.modal.expanded .modal-img-wrapper {
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.modal.expanded .modal-content {
+    max-width: 95vw;
+    max-height: 95vh;
+}
+
+.modal.expanded img {
+    max-width: 90vw;
+    max-height: 90vh;
+    cursor: zoom-out;
+}
+
 .modal-content {
     background: #142F43;
     padding: 48px 32px 32px;
@@ -315,8 +363,7 @@ body {
 
 .modal.show .modal-content {
     opacity: 1;
-    transform: scale(1);
-    transform: translateX(0);
+    transform: scale(1) translateX(0);
 }
 
 .modal-content img {
