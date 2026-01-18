@@ -154,6 +154,7 @@ modalImg.addEventListener("click", () => {
 
 function closeModal() {
     modal.classList.remove("show");
+    modal.classList.remove("expanded");
     document.body.style.overflow = "";
 }
 

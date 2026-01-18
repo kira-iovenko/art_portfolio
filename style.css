@@ -304,11 +304,11 @@ body {
 }
 
 .expand-btn {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.55);
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    z-index: 1001;
+    background: rgba(255, 95, 126, 0.55);
     color: #fff;
     border: none;
     border-radius: 999px;
@@ -316,8 +316,15 @@ body {
     height: 36px;
     cursor: pointer;
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show .expand-btn{
     opacity: 1;
-    transition: opacity 0.2s ease;
 }
 
 .modal-img-wrapper:hover .expand-btn {
@@ -336,14 +343,24 @@ body {
 }
 
 .modal.expanded .modal-content {
-    max-width: 95vw;
-    max-height: 95vh;
+    max-width: none;
+    max-height: none;
+    padding: 0;
+    background: transparent;
+    justify-content: center;
 }
 
 .modal.expanded img {
+    display: block;
     max-width: 90vw;
     max-height: 90vh;
-    cursor: zoom-out;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.modal.expanded .modal-caption {
+    display: none;
 }
 
 .modal-content {
@@ -413,14 +430,22 @@ body {
 }
 
 .modal-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
     font-size: 28px;
     color: #fff;
     cursor: pointer;
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 1001;
+    background: rgba(0,0,0,0.55);
+    border-radius: 999px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal.show .modal-close {
