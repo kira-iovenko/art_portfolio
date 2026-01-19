@@ -2,7 +2,7 @@ const track = document.getElementById("carousel");
 const container = document.getElementById("carousel-container");
 if (track && container) {
     let offset = 0;
-    let speed = 1;
+    let speed = 0.5;
     let isPaused = false;
 
     while (track.scrollWidth < container.offsetWidth * 3) {

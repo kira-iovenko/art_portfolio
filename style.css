@@ -1,16 +1,35 @@
+:root {
+    --bg-main: #eeeeee;
+    --bg-dark: #142F43;
+    --accent: #FF5F7E;
+    --text-light: #ffffff;
+    --text-muted: #cccccc;
+    --font-display: "Courier New", monospace;
+    --font-ui: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    --radius-soft: 12%;
+    --radius-round: 999px;
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: sans-serif;
-    background: #eeeeee;
+    font-family: var(--font-ui);
+    background: var(--bg-main);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar {
     width: 100%;
-    background: #142F43;
+    background: var(--bg-dark);
     padding: 20px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -30,10 +49,17 @@ body {
     margin: 0 20px;
 }
 
+.navbar li span {
+    text-decoration: none;
+    color: var(--accent);
+    font-family: var(--font-ui);
+    font-weight: bold;
+}
+
 .navbar a {
     text-decoration: none;
-    color: #fff;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    color: var(--text-light);
+    font-family: var(--font-ui);
     font-weight: bold;
     font-size: 16px;
     display: inline-block;
@@ -41,15 +67,15 @@ body {
 }
 
 .navbar a:hover {
-    color: #FF5F7E;
+    color: var(--accent);
     transform: scale(1.1);
     text-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 
 .overlay {
-    margin: 60px 0;
-    width: 100vw;
+    margin: 0 0 60px;
+    width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -57,7 +83,7 @@ body {
 .panel {
     display: flex;
     flex-wrap: wrap;
-    background: #142F43;
+    background: var(--bg-dark);
     min-height: 60vh;
     width: 100%;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
@@ -79,9 +105,10 @@ body {
 
 
 .divider {
+    flex: none;
     width: 0;
     height: 2px;
-    background-color: #FF5F7E;
+    background-color: var(--accent);
     margin: 16px auto 28px;
     animation: drawDivider 0.8s ease-out forwards;
     opacity: 0.8;
@@ -152,18 +179,18 @@ body {
 }
 
 .left-stuff h1 {
-    color: #FF5F7E;
+    color: var(--accent);
     font-size: 55px;
-    font-family: "Courier New", monospace;
+    font-family: var(--font-display);
 
     color: transparent;
-    -webkit-text-stroke: 2px #FF5F7E;
+    -webkit-text-stroke: 2px var(--accent);
     margin-bottom: 12px;
 }
 
 .left-stuff p {
-    color: #fff;
-    font-family: "Courier New", monospace;
+    color: var(--text-light);
+    font-family: var(--font-display);
 }
 
 .right {
@@ -178,7 +205,7 @@ body {
     max-width: 100%;
     height: auto;
     display: block;
-    border-radius: 12%;
+    border-radius: var(--radius-soft);
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease, transform 0.8s ease;
@@ -214,12 +241,12 @@ body {
 
 .social-carousel::before {
     left: 0;
-    background: linear-gradient(to right, white, transparent);
+    background: linear-gradient(to right, var(--bg-main), transparent);
 }
 
 .social-carousel::after {
     right: 0;
-    background: linear-gradient(to left, white, transparent);
+    background: linear-gradient(to left, var(--bg-main), transparent);
 }
 
 .carousel-track {
@@ -236,6 +263,25 @@ body {
 .carousel-track img:hover {
     transform: scale(1.2);
     opacity: 0.85;
+}
+
+.gallery-wrapper {
+    position: relative;
+}
+
+.gallery-wrapper::after {
+    content: "";
+    position: sticky;
+    bottom: 0;
+    display: block;
+    height: 140px;
+    pointer-events: none;
+    background: linear-gradient(
+        to top,
+        var(--bg-main),
+        transparent
+    );
+    z-index: 2;
 }
 
 .gallery-full {
@@ -260,7 +306,7 @@ body {
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
 }
 
-.scroll-fade {
+/* .scroll-fade {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -272,7 +318,7 @@ body {
             rgba(238, 238, 238, 0));
     transition: opacity 0.4s ease;
     z-index: 5;
-}
+} */
 
 .modal {
     position: fixed;
@@ -309,9 +355,9 @@ body {
     right: 20px;
     z-index: 1001;
     background: rgba(255, 95, 126, 0.55);
-    color: #fff;
+    color: var(--text-light);
     border: none;
-    border-radius: 999px;
+    border-radius: var(--radius-round);
     width: 36px;
     height: 36px;
     cursor: pointer;
@@ -364,7 +410,7 @@ body {
 }
 
 .modal-content {
-    background: #142F43;
+    background: var(--bg-dark);
     padding: 48px 32px 32px;
     width: 100%;
     max-width: 900px;
@@ -418,15 +464,15 @@ body {
 }
 
 .modal-caption h2 {
-    color: #FF5F7E;
+    color: var(--accent);
     margin-bottom: 0;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-family: var(--font-ui);
 }
 
 .modal-caption p {
-    color: #fff;
+    color: var(--text-light);
     margin: 6px 0;
-    font-family: "Courier New", monospace;
+    font-family: var(--font-display);
 }
 
 .modal-close {
@@ -434,13 +480,13 @@ body {
     top: 20px;
     right: 20px;
     font-size: 28px;
-    color: #fff;
+    color: var(--text-light);
     cursor: pointer;
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 1001;
     background: rgba(0,0,0,0.55);
-    border-radius: 999px;
+    border-radius: var(--radius-round);
     width: 36px;
     height: 36px;
     display: flex;
@@ -456,9 +502,9 @@ body {
     margin-top: 80px;
     padding: 40px 20px;
     text-align: center;
-    background: #142F43;
-    color: #ccc;
-    font-family: "Courier New", monospace;
+    background: var(--bg-dark);
+    color: var(--text-muted);
+    font-family: var(--font-display);
 }
 
 .my-footer p {
@@ -472,7 +518,7 @@ body {
 }
 
 .my-footer:hover {
-    color: #fff;
+    color: var(--text-light);
 }
 
 @keyframes popIn {
