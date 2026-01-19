@@ -222,6 +222,7 @@ html, body {
 }
 
 .social-carousel {
+    flex: none;
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -305,20 +306,6 @@ html, body {
     transform: scale(1.04);
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
 }
-
-/* .scroll-fade {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 140px;
-    pointer-events: none;
-    background: linear-gradient(to top,
-            rgba(238, 238, 238, 1),
-            rgba(238, 238, 238, 0));
-    transition: opacity 0.4s ease;
-    z-index: 5;
-} */
 
 .modal {
     position: fixed;
